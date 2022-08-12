@@ -56,15 +56,43 @@ int main(int argc, const char **argv)
     float start_y;
     float end_x;
     float end_y;
+    bool InRange=false;
 
-    std::cout<<"Set start x coordinate: \n";
-    std::cin >> start_x;
-    std::cout<<"Set start y coordinate: \n";
-    std::cin >> start_y;
-    std::cout<<"Set end x coordinate: \n";
-    std::cin >> end_x;
-    std::cout<<"Set end y coordinate: \n";
-    std::cin >> end_y;
+
+    while(!InRange) {
+        std::cout << "Give in the coordinates, which should be between 0 - 100.\n Set start x coordinate: \n";
+        std::cin >> start_x;
+        if (0<=start_x&&start_x<=100) {
+            std::cout << "Set start y coordinate: \n";
+            InRange = true;
+        } else {
+            std::cout << "Please set a valid coordinate! \n";
+            continue;
+        }
+        std::cin >> start_y;
+        if (0 <= start_y && start_y<= 100) {
+            std::cout << "Set end x coordinate: \n";
+        } else {
+            std::cout << "Please set a valid coordinate: \n";
+            std::cin >> start_y;
+            continue;
+        }
+        std::cin >> end_x;
+        if (0 <= end_x && end_x<= 100) {
+            std::cout << "Set end y coordinate: \n";
+        } else {
+            std::cout << "Please set a valid coordinate: \n";
+            std::cin >> end_x;
+            continue;
+        }
+        std::cin >> end_y;
+        if (0 <= end_y && end_y<= 100) {
+        } else {
+            std::cout << "Please set a valid coordinate: \n";
+            continue;
+        }
+    }
+
     // RoutePlanner object below in place of 10, 10, 90, 90.
 
     // Build Model.
